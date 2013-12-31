@@ -6,6 +6,8 @@
 //  Copyright (c) 2012 GitHub, Inc. All rights reserved.
 //
 
+#if !TARGET_OS_IPHONE
+
 #import "NSObject+RACAppKitBindings.h"
 #import "EXTKeyPathCoding.h"
 #import "EXTScope.h"
@@ -173,3 +175,5 @@
 #pragma clang diagnostic pop
 
 @end
+
+#endif

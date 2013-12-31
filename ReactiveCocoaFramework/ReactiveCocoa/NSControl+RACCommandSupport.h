@@ -6,6 +6,8 @@
 //  Copyright (c) 2012 GitHub, Inc. All rights reserved.
 //
 
+#if !TARGET_OS_IPHONE
+
 #import <Cocoa/Cocoa.h>
 
 @class RACCommand;
@@ -20,3 +22,5 @@
 @property (nonatomic, strong) RACCommand *rac_command;
 
 @end
+
+#endif

@@ -11,13 +11,14 @@
 #import "RACDisposable.h"
 #import "RACQueueScheduler+Subclass.h"
 #import "RACScheduler+Private.h"
+#import "RACPlatform.h"
 
 @implementation RACQueueScheduler
 
 #pragma mark Lifecycle
 
 - (void)dealloc {
-	dispatch_release(_queue);
+	rac_dispatch_release(_queue);
 }
 
 - (id)initWithName:(NSString *)name queue:(dispatch_queue_t)queue {
@@ -26,7 +27,7 @@
 	self = [super initWithName:name];
 	if (self == nil) return nil;
 
-	dispatch_retain(queue);
+	rac_dispatch_retain(queue);
 	_queue = queue;
 
 	return self;
@@ -93,7 +94,7 @@
 
 	return [RACDisposable disposableWithBlock:^{
 		dispatch_source_cancel(timer);
-		dispatch_release(timer);
+		rac_dispatch_release(timer);
 	}];
 }
 

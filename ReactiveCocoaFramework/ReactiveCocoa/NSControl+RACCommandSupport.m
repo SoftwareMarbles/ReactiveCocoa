@@ -6,6 +6,8 @@
 //  Copyright (c) 2012 GitHub, Inc. All rights reserved.
 //
 
+#if !TARGET_OS_IPHONE
+
 #import "NSControl+RACCommandSupport.h"
 #import "EXTScope.h"
 #import "NSObject+RACPropertySubscribing.h"
@@ -57,3 +59,5 @@ static void *NSControlEnabledDisposableKey = &NSControlEnabledDisposableKey;
 }
 
 @end
+
+#endif

@@ -6,6 +6,8 @@
 //  Copyright (c) 2013 GitHub, Inc. All rights reserved.
 //
 
+#if !TARGET_OS_IPHONE
+
 #import <Cocoa/Cocoa.h>
 
 @class RACSignal;
@@ -22,3 +24,5 @@
 - (RACSignal *)rac_textSignal;
 
 @end
+
+#endif

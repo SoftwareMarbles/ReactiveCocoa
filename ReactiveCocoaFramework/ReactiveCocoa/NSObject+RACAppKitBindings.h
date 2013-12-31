@@ -6,6 +6,8 @@
 //  Copyright (c) 2012 GitHub, Inc. All rights reserved.
 //
 
+#if !TARGET_OS_IPHONE
+
 #import <Cocoa/Cocoa.h>
 
 @class RACChannelTerminal;
@@ -38,3 +40,5 @@
 - (void)rac_bind:(NSString *)binding toObject:(id)object withNegatedKeyPath:(NSString *)keyPath __attribute__((deprecated("Use -rac_bind:options: instead")));
 
 @end
+
+#endif

@@ -6,6 +6,8 @@
 //  Copyright (c) 2013 GitHub, Inc. All rights reserved.
 //
 
+#if !TARGET_OS_IPHONE
+
 #import "NSText+RACSignalSupport.h"
 #import "EXTScope.h"
 #import "RACDisposable.h"
@@ -36,3 +38,5 @@
 }
 
 @end
+
+#endif

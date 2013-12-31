@@ -10,6 +10,8 @@
 #import <pthread.h>
 #import "RACBacktrace.h"
 
+#import "RACPlatform.h"
+
 #define RAC_BACKTRACE_MAX_CALL_STACK_FRAMES 128
 
 #ifdef DEBUG
@@ -222,7 +224,9 @@ static void RACExceptionHandler (NSException *ex) {
 
 		_backtrace = [RACBacktrace backtraceIgnoringFrames:1];
 
-		dispatch_retain(queue);
+#if !__has_feature(objc_arc)
+		rac_dispatch_retain(queue);
+#endif
 		_queue = queue;
 
 		_function = function;
@@ -234,7 +238,7 @@ static void RACExceptionHandler (NSException *ex) {
 
 - (void)dealloc {
 	if (_queue != NULL) {
-		dispatch_release(_queue);
+		rac_dispatch_release(_queue);
 		_queue = NULL;
 	}
 }
